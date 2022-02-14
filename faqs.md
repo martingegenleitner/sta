@@ -32,3 +32,18 @@ The official documentation can be found by searching "WSDL BSIDCA API Developer'
 ## STA Status Page
 
 @ <https://supportportal.gemalto.com/csm?id=sta_dashboards>
+
+## How to delete LDAP-Synced users?
+
+Either use the REST-API like shown in [Remove-UsersByGroup.ps1](api-samples/Remove-UsersByGroup.ps1) or by using a LDAP-Sync-Agent and sync an empty group.
+
+```text
+NOTE Synchronization occurs only if the Sync Groups list contains at least one group.
+Keep in mind that groups will be synchronized even if they contain no users.
+In the rare event that you wish to remove all users from SAS and, in essence, start from
+scratch, you can change your SAS Synchronization Agent configuration to include one
+new empty group, remove the other groups, and then synchronize. SAS will be updated
+with just the one empty group. You can now reconfigure SAS Synchronization Agent to
+include the groups you would like and, on the next sync, SAS will be updated with those
+groups.
+```
