@@ -8,7 +8,7 @@ Use a browser in incognito mode. Sometimes caches on the browser side prevent a 
 
 ## Sync Agent | "Can not sync AD Passwords"
 
-```shell
+```log
 [ERROR] BaseUserAdapter.ActiveDirectory.ActiveDirectoryRepository   Unable to retrieve AD password hash for user or user's AD password was not set.BaseUserAdapter.Exceptions.UserSourceException: 5134// System.UnauthorizedAccessException: Replication access was denied ---> System.ComponentModel.Win32Exception: Replication access was denied
    --- End of inner exception stack trace ---
    at DSInternals.Common.Validator.AssertSuccess(Win32ErrorCode code)
@@ -29,6 +29,20 @@ Use a browser in incognito mode. Sometimes caches on the browser side prevent a 
 It is not possible to sync users with their AD password hashes.
 
 **Solution** = Follow the guide @ <https://docs.microsoft.com/en-us/troubleshoot/windows-server/windows-security/grant-replicating-directory-changes-permission-adma-service> on how to grant the domain joined machine the permissions "Replicating Directory Changes" and "Replicating Directory Changes All".
+
+## Sync Agent | "Error communicating with server."
+
+```log
+2022-04-29:07:00:48 PM [7] INFO  ClientLauncher - Transaction Streamer: Connecting to host.
+2022-04-29:07:00:48 PM [7] INFO  ClientLauncher - Connected to primary SAS at sync.eu.safenetid.com:8456.
+2022-04-29:07:00:48 PM [7] INFO  ClientLauncher - Transaction Streamer: Connection made. Negotiating.
+2022-04-29:07:00:49 PM [7] WARN  ClientLauncher - TransactionStreamer: Error communicating with server.
+2022-04-29:07:00:49 PM [7] INFO  ClientLauncher - SAR: Sync aborted.
+```
+
+It is not possible to sync users from any user source at all.
+
+**Solution** = Restart the Windows Server. Error might also occure due to a timeshift.
 
 ## STA Account Management | "Cannot update the account services information. Contact your administrator."
 

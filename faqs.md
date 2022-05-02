@@ -47,3 +47,9 @@ with just the one empty group. You can now reconfigure SAS Synchronization Agent
 include the groups you would like and, on the next sync, SAS will be updated with those
 groups.
 ```
+
+## Where can I download Software for STA?
+
+All downloads (agents + docs) can be found publicly on the [THALES Support Portal](https://supportportal.thalesgroup.com/csm) even without any login. Enter `STA` into the search bar, WAIT and then click on the product `SafeNet Trusted Access` in the pre-found search results. This will lead to STA's main page where there is a tile that leads to the Agent downloads.
+
+The direct link to that downloads page is [here](https://supportportal.thalesgroup.com/csm/?id=kb_article_view&sys_kb_id=c1b2e9d54fa262001efc69d18110c71a&sysparm_article=KB0010219).
